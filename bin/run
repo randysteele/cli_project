@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
+gem 'rspotify'
+require_relative '../lib/cli_project'
 
-require './lib/cli_project'
 
 
-Music::CLI.new.call
