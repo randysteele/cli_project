@@ -77,7 +77,7 @@ DEPENDENCIES
   cli_project!
   pry
   rake (~> 10.0)
-  rspec
+  rspec (~> 3.0)
   rspotify
 
 BUNDLED WITH

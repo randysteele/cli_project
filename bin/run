@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-gem 'rspotify'
+require "bundler/setup"
 require_relative '../lib/cli_project'
 
 
-
+CLI.new.call
