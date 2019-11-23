@@ -1,4 +1,5 @@
 require 'rspotify'
+require 'pry'
 
 require_relative 'cli_project/api'
 require_relative 'cli_project/cli'

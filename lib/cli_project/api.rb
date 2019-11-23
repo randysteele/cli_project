@@ -1,4 +1,6 @@
+require 'pry'
 class API
+  attr_accessor :CLI
 
   
   RSpotify.authenticate("f2d6e54d3bed499983183cb8c183dd75", "14e98f258cce4f89b5eb48f8342f6f37")
@@ -18,7 +20,18 @@ class API
   
   def top_50
     #this should list all the songs 
+    me = RSpotify::User.find('RandySteele')
   end
+  
+  def list
+    # list_songs = RSpotify::Playlist.find('RandySteele',  '2YRe7HRKNRvdjBp9nXFza')
+     songs = RSpotify::Playlist.search("Most Played")
+  end
+  
+  def raw
+    RSpotify.raw_response = true
+    # RSpotify::Artist.search('Cher')
+   end
   
   def top_50_artists
     #this should list all the artists
