@@ -18,20 +18,27 @@ class API
     end
   end
   
-  def top_50
-    #this should list all the songs 
-    me = RSpotify::User.find('RandySteele')
-  end
+  # def top_50
+  #   #this should list all the songs 
+  #   me = RSpotify::User.find('RandySteele')
+  # end
   
   def list
     # list_songs = RSpotify::Playlist.find('RandySteele',  '2YRe7HRKNRvdjBp9nXFza')
      songs = RSpotify::Playlist.search("Most Played")
-  end
-  
-  def raw
-    RSpotify.raw_response = true
-    # RSpotify::Artist.search('Cher')
+     songs.each.with_index(1-50) do |number, index| 
+     #{number}, #{index}
+     break number if number.size == 50
    end
+   
+   
+end
+
+  
+  # def raw
+  #   RSpotify.raw_response = true
+  #   # RSpotify::Artist.search('Cher')
+  # end
   
   def top_50_artists
     #this should list all the artists
@@ -40,5 +47,6 @@ class API
   def top_50_genres
     #this shoudl list all the genres
   end
-  
-end  
+
+end 
+ 
