@@ -1,5 +1,6 @@
 class CLI
- attr_accessor :API 
+ 
+ 
   def call
    puts "Hello!"
    list_songs

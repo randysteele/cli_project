@@ -1,18 +1,25 @@
 require 'pry'
 class API
-  attr_accessor :CLI
-  
-  def initialize(name)
-    @name = name
-  end
-
+  attr_accessor :CLI, :name
   @@all = []
+  
+  def initialize(options = {})
+      @collaborative = options['collaborative']
+      @description   = options['description']
+      @followers     = options['followers']
+      @images        = options['images']
+      @name          = options['name']
+      @public        = options['public']
+      @snapshot_id   = options['snapshot_id']
+      @total         = options['tracks']['total'] 
+  end
+  
   
   RSpotify.authenticate("f2d6e54d3bed499983183cb8c183dd75", "14e98f258cce4f89b5eb48f8342f6f37")
   
-  def self.all
-    @@all << self
-  end
+  # def self.all
+  #   @@all << self
+  # end
   
   def call
     input = ""
@@ -37,12 +44,12 @@ class API
   def list
      playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
      binding.pry
-    # playlist.each_with_index{|song_number, index| puts "this is #{song_number}, #{index}"}
-    playlist.tracks
+    playlist.tracks[0..50].name.each {|song|}
+    puts #{song}
   end
    
     def tracks(limit: 50, offset: 1)
-      track_list = RSpotify.playlists.tracks
+      track_list = RSpotify.playlist.tracks
       last_track = offset + limit - 1
       # if @tracks_cache && last_track < 100 && !RSpotify.raw_response
         
