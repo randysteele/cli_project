@@ -2,12 +2,20 @@ class Music
   
 attr_accessor :artist, :name
 
-  def initialize
   
+  @@all = [] 
+  
+  def self.all 
+    @@all 
   end
 
+  def artist=(artist)
+    @artist = artist
+  end
 
-  
+  def name=(name)
+    @name = name
+  end
   
   
   

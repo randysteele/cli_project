@@ -1,6 +1,8 @@
 class CLI
  
- 
+  def name=(name)
+    @name = name
+  end
   def call
    puts "Hello!"
    list_songs
