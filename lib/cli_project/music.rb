@@ -1,10 +1,14 @@
 class Music
   
-attr_accessor :artist, :name
+attr_accessor :artist, :name, :tracks
 
   
   @@all = [] 
   
+   def artists
+    @artists
+   end
+
   def self.all 
     @@all 
   end

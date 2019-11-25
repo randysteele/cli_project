@@ -1,7 +1,7 @@
 require 'pry'
-class API
-  attr_accessor :CLI, :artist
-  attr_reader :name
+class API 
+  attr_accessor :CLI, :artists, :album, :tracks, :name
+  
   @@all = []
   
   # def initialize(name)
@@ -16,6 +16,15 @@ class API
   #     @name = name
   # end
  
+  def artists
+    @artists
+  end
+
+  def tracks
+    @tracks
+  end
+
+
   
   RSpotify.authenticate("f2d6e54d3bed499983183cb8c183dd75", "14e98f258cce4f89b5eb48f8342f6f37")
   
@@ -30,25 +39,19 @@ class API
     puts "To list all the popular songs, enter 'top 50'."
     puts "To list all of the artists in the top 50, enter 'top 50 artists'."
     puts "To list all of the genres in the top 50, enter 'top 50 genres'."
-    puts "To quit, type 'exit'."
+    puts "To exit, type 'exit'."
     puts "What would you like to do?"
     input = gets.chomp
+    # input = gets.strip
+    case input 
+    
+     when "top 50"
+      top_50
     end
   end
-  
-  # def top_50
-  #   #this should list all the songs 
-  #   me = RSpotify::User.find('RandySteele')
-  # end
-  
-  # def list_songs
-  # Music.all.sort{ |a, b| a.name <=> b.name }.each.with_index(1) do |s, i|
-  #     puts "#{i}. #{s.artist.name} - #{s.name} - #{s.genre.name}"
-  #     playlist.tracks.name
-  #   end
-  # end
-  
-  def playlist
+end
+
+   def playlist
      playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
    end
     # playlist.tracks[0..50].name.each {|song|}
