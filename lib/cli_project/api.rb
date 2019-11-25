@@ -1,9 +1,18 @@
 require 'pry'
 class API
   attr_accessor :CLI
+  
+  def initialize(name)
+    @name = name
+  end
 
+  @@all = []
   
   RSpotify.authenticate("f2d6e54d3bed499983183cb8c183dd75", "14e98f258cce4f89b5eb48f8342f6f37")
+  
+  def self.all
+    @@all << self
+  end
   
   def call
     input = ""
@@ -23,22 +32,22 @@ class API
   #   me = RSpotify::User.find('RandySteele')
   # end
   
-  def list
-    # list_songs = RSpotify::Playlist.find('RandySteele',  '2YRe7HRKNRvdjBp9nXFza')
-     songs = RSpotify::Playlist.search("Most Played")
-     songs.each.with_index(1-50) do |number, index| 
-     #{number}, #{index}
-     break number if number.size == 50
-   end
-   
-   
-end
-
   
-  # def raw
-  #   RSpotify.raw_response = true
-  #   # RSpotify::Artist.search('Cher')
-  # end
+  
+  def list
+     playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
+     binding.pry
+    # playlist.each_with_index{|song_number, index| puts "this is #{song_number}, #{index}"}
+    playlist.tracks
+  end
+   
+    def tracks(limit: 50, offset: 1)
+      track_list = RSpotify.playlists.tracks
+      last_track = offset + limit - 1
+      # if @tracks_cache && last_track < 100 && !RSpotify.raw_response
+        
+    end
+
   
   def top_50_artists
     #this should list all the artists
@@ -48,5 +57,5 @@ end
     #this shoudl list all the genres
   end
 
-end 
  
+end
