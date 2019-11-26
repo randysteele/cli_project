@@ -4,17 +4,17 @@ class API
   
   @@all = []
   
-  # def initialize(name)
-  #     # @collaborative = options['collaborative']
-  #     # @description   = options['description']
-  #     # @followers     = options['followers']
-  #     # @images        = options['images']
-  #     # @name          = options['name']
-  #     # @public        = options['public']
-  #     # @snapshot_id   = options['snapshot_id']
-  #     # @total         = options['tracks']['total'] 
-  #     @name = name
-  # end
+  def initialize(name)
+      # @collaborative = options['collaborative']
+      # @description   = options['description']
+      # @followers     = options['followers']
+      # @images        = options['images']
+      # @name          = options['name']
+      # @public        = options['public']
+      # @snapshot_id   = options['snapshot_id']
+      # @total         = options['tracks']['total'] 
+      @name = name
+  end
  
   def artists
     @artists
@@ -64,9 +64,11 @@ end
    
   
   def top_50_artists
-    #this should list all the artists
+   playlist.tracks.map do |artist|
+     puts artist.name
   end
-  
+ # playlist.tracks[0].artists 
+ 
   def top_50_genres
     #this shoudl list all the genres
     
