@@ -1,36 +1,8 @@
 require 'pry'
 class API 
-  attr_accessor :CLI, :artists, :album, :tracks, :name
-  
-  @@all = []
-  
-  def initialize(name)
-      # @collaborative = options['collaborative']
-      # @description   = options['description']
-      # @followers     = options['followers']
-      # @images        = options['images']
-      # @name          = options['name']
-      # @public        = options['public']
-      # @snapshot_id   = options['snapshot_id']
-      # @total         = options['tracks']['total'] 
-      @name = name
-  end
- 
-  def artists
-    @artists
-  end
-
-  def tracks
-    @tracks
-  end
-
-
+  # attr_accessor :CLI, :artists, :album, :tracks, :name
   
   RSpotify.authenticate("f2d6e54d3bed499983183cb8c183dd75", "14e98f258cce4f89b5eb48f8342f6f37")
-  
-  # def self.all
-  #   @@all << self
-  # end
   
   def call
     input = ""
@@ -54,23 +26,27 @@ end
    def playlist
      playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
    end
-   
+    
     
    def top_50  
      playlist.tracks.map do |song|
-     puts song.name
+     song.name
    end
   end
    
+   song_list = playlist.tracks
   
   def top_50_artists
-   playlist.tracks.map do |artist|
-     puts artist.name
+  # track = playlist.artists
+    song.artists.map do |art|
+      art.name
+      
+    end
   end
- # playlist.tracks[0].artists 
+  
+  
  
   def top_50_genres
-    #this shoudl list all the genres
-    
+    #this should list all the genres
   end
  end
