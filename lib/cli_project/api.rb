@@ -42,3 +42,14 @@ end
    end
   end
  end
+ 
+ 
+# def print_artists(from_number)
+# 2.6.1 :030?>   puts ""
+# 2.6.1 :031?>   puts "Artists #{from_number} - #{from_number+49}
+# 2.6.1 :032"> puts ""
+# 2.6.1 :033"> Playlist.tracks[from_number-1, 50].map.with_index(from_number) do |art, i|
+# 2.6.1 :034"> puts "#{i}. #{art.name}"
+# 2.6.1 :035?>   end
+# => :print_artists
+# 2.6.1 :036 > print_artists(1)
