@@ -31,14 +31,14 @@ end
     
     
    def top_50  
-     playlist.tracks.map do |song|
-     puts song.name
+     playlist.tracks.map.with_index(1) do |song, i|
+     puts "#{i}. #{song.name}"
    end
   end
   
   def top_50_artists
-   playlist.tracks.map do |art|
-     puts art.artists[0].name
+   playlist.tracks.map.with_index(1) do |art, i|
+     puts "#{i}. #{art.name}"
    end
   end
  end
