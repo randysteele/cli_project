@@ -13,12 +13,14 @@ class API
     puts "To list all of the genres in the top 50, enter 'top 50 genres'."
     puts "To exit, type 'exit'."
     puts "What would you like to do?"
-    input = gets.chomp
+    
     input = gets.strip
     
     case input 
      when "top 50"
       top_50
+      when "top 50 artists"
+        top_50_artists
     end
   end
 end
@@ -30,13 +32,13 @@ end
     
    def top_50  
      playlist.tracks.map do |song|
-     song.name
+     puts song.name
    end
   end
   
   def top_50_artists
    playlist.tracks.map do |art|
-     art.artists[0].name
+     puts art.artists[0].name
    end
   end
  end
