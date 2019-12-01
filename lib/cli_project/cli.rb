@@ -1,11 +1,10 @@
 class CLI
  
-  def name=(name)
-    @name = name
-  end
+  
   def call
    puts "Hello!"
    list_songs
+   welcome
   end
   
   def list_songs
@@ -16,4 +15,8 @@ class CLI
   def welcome
     puts "Hello, which song number would you like more infromation on?"
   end
+  
+  def info
+ 
+ end
 end
