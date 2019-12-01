@@ -9,18 +9,25 @@ class API
     until input == "exit"
     puts "Welcome to today's 50 most popular songs!"
     puts "To list all the popular songs, enter 'top 50'."
-    puts "Which song would you like more infomation about? Please enter the song number:"
+    puts "Would you like to see the artists for these songs?"
+    input = gets.strip.to_i
+    
+    if input = "y"
+      top_50_artists
+    end
     
     puts "To exit, type 'exit'."
     puts "What would you like to do?"
     
     input = gets.strip
     
+    artist = playlist.tracks.find(input.to_i)
+    exiend
     case input 
      when "top 50"
       top_50
-      when "top 50 artists"
-        top_50_artists
+      # when #{i}
+      #   song_number{i}
     end
   end
 end
@@ -32,24 +39,29 @@ end
     
    def top_50  
      playlist.tracks.map.with_index(1) do |song, i|
-     puts "#{i}. #{song.name}"
+     "#{i}. #{song.name}"
    end
   end
   
-  # def top_50_artists
-  #   playlist.tracks.map.with_index(1) do |art, i|
-  #   puts "#{i}. #{art.artists[0].name}"
-  # end
-  # end
- end
+  def top_50_artists
+    playlist.tracks.map.with_index(1) do |art, i|
+    puts "#{i}. #{art.artists[0].name}"
+    
+  end
+  end
+ 
  
   def print_artists(from_number)
     puts "Artists #{from_number} - #{from_number+49}"
 
-    # playlist.tracks[from_number-1, 50].map.with_index(from_number) do |art, i|
-    # puts "#{i}. #{art.name}"
+    playlist.tracks[from_number-1, 50].map.with_index(from_number) do |art, i|
+    puts "#{i}. #{art.name}"
+   end
    
+   def song_number
+     playlist.tracks.map.with_index do |song, i|
+       puts "#{i}. #{song.name}" 
+     end
+   end
+ end
   end
- 
-
- 

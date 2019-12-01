@@ -13,7 +13,7 @@ class CLI
  
  
   def welcome
-    puts "Hello, which song number would you like more infromation on?"
+    puts "Hello, which song number would you like more information on?"
   end
   
   def info
