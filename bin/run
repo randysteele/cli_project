@@ -4,5 +4,6 @@ require 'pry'
 require_relative '../lib/cli_project'
 
 
+Music.new
 CLI.new.call
 API.new.call

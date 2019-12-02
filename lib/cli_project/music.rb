@@ -1,26 +1,20 @@
 class Music
   
-attr_accessor :artist, :name, :tracks
-
+# def playlist
+#     playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
+#   end
+    
+    
+#   def top_50  
+#     playlist.tracks.map.with_index(1) do |song, i|
+#     puts "#{i}. #{song.name}"
+#   end
+#   end
   
-  @@all = [] 
-  
-   def artists
-    @artists
-   end
-
-  def self.all 
-    @@all 
-  end
-
-  def artist=(artist)
-    @artist = artist
-  end
-
-  def name=(name)
-    @name = name
-  end
-  
-  
-  
-end
+#   def top_50_artists
+#     playlist.tracks.map.with_index(1) do |art, i|
+#     puts "#{i}. #{art.artists[0].name}"
+    
+#     end
+#   end
+end  

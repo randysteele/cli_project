@@ -2,21 +2,15 @@ class CLI
  
   
   def call
-   puts "Hello!"
-   list_songs
    welcome
   end
   
-  def list_songs
-   puts "Today's top 50 most popular songs:" 
- end
+  
  
  
   def welcome
-    puts "Hello, which song number would you like more information on?"
+    puts "Welcome to today's popular songs!"
   end
   
-  def info
  
- end
 end
