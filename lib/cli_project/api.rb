@@ -1,6 +1,7 @@
 require 'pry'
 class API 
   
+  #
 
   # def list_artists
   #   playlist.tracks.sort{ |a, b| a.name <=> b.name }.map.with_index(1)  do |s, i|
@@ -61,8 +62,11 @@ class API
 
   def playlist
     playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
+    binding.pry
   end
-    
+  #  playlist.tracks[0].album.name
+  #playlist.tracks[0].album.album_type
+  #playlist.tracks[0].artists[0].name
     
   def top_50  
     playlist.tracks.map.with_index(1) do |song, i|
