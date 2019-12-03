@@ -1,4 +1,4 @@
-#cli needs to make a api call creating new instances of music with the attribute(initialize). anything puts should be in cli. 
+#cli needs to make a api call creating new instances of music with the attributes. anything putsing should be in cli. 
 require 'pry'
 class API 
   
@@ -17,26 +17,35 @@ class API
   def call
     puts "Welcome to the most popular songs!"
     menu
+    playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
+       puts "Song number #{i}. Artist name - #{s.artists[0].name}, Album name - #{s.album.name}, Album type - #{s.album.album_type}"
+      # binding.pry
   end
     
     def menu
-      input = 
+      input = " "
+      while input != "exit"
       puts "What song would you like more infomation on? 1-50"
-    # input = gets.strip.to_i
-    # # puts "To list all the popular songs, enter 'top 50'."
-    # puts "To exit, type 'exit'."
-    # puts "What song number would you like too see? 1-50"
     input = gets.strip.to_i
+    # # puts "To list all the popular songs, enter 'top 50'."
+    puts "To exit, type 'exit'."
+    # puts "What song number would you like too see? 1-50"
+    # input = gets.strip.to_i
     
     
        playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
-    puts "Song number #{i}. Artist name - #{i}#{s.artists[0].name}, Album name - #{i}#{s.album.name}, Album type #{i}#{s.album.album_type}"
-    
-    
+       puts "Song number #{i}. Artist name - #{s.artists[0].name}, Album name - #{s.album.name}, Album type - #{s.album.album_type}"
+      # binding.pry
+      
+      input = gets.strip.to_i
+      
+  
+   end 
+ end
     # playlist.tracks.map do |art|
     # puts "#{art.artists[0].name}"
-    input = gets.strip.to_i-1
-  end
+  #   input = gets.strip.to_i-1
+  # end
  
    end
  
@@ -44,26 +53,22 @@ class API
     # == "top 50"
     # list_songs
     # elsif 
-    
   
-  
-    
     def print_songs(number)  
       playlist.tracks[number-1, 50].map.with_index(number) do |song, index|
         puts "#{index}. #{song.name}"
       end
     end  
     
-#   if input == "top 50"
-#       top_50
-#       puts "If you'd like to see the artists for these songs type 'y'?"
-#       elsif input == "y"
-#         top_50_artists
-#         elsif input == "n" 
-#         input == ""
-#     end
-#   end
-# end  
+  # if input == "top 50"
+  #     top_50
+  #     elsif input == "exit"
+  #       exit
+  #       else 
+  #       "i'm not sure what you want to do."
+  #   end
+  # end
+  
  
 
  
@@ -90,9 +95,9 @@ end
   end
     end
     
-    def list_songs
-    playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.map.with_index(1)  do |s, i|
-    puts "#{i}. #{s.name}"
-    end
-  end 
+  #   def list_songs
+  #   playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.map.with_index(1)  do |s, i|
+  #   puts "#{i}. #{s.name}"
+  #   end
+  # end 
 end
