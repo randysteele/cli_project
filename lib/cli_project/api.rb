@@ -1,7 +1,11 @@
 require 'pry'
 class API 
   
-  @@all = []
+
+  def list_artists
+    playlist.tracks.sort{ |a, b| a.name <=> b.name }.map.with_index(1)  do |s, i|
+    puts "#{i}. #{s.artists[0].name}"
+    
   
   def call
     input = ""
@@ -10,11 +14,20 @@ class API
     puts "To exit, type 'exit'."
     
     puts "What song number would you like too see?"
-    input = gets.strip.to_i
+    input = gets.strip
     
     
     
-      
+    # if input.to_i > 0
+    #   puts "#{i}. #{s.artists[0].name}"
+    
+  end
+    
+  end
+    def print_songs(number)  
+      playlist.tracks[number-1, 50].map.with_index(number) do |song, index|
+        puts "#{index}. #{song.name}"
+      end
       
     
   # if input == "top 50"
@@ -25,7 +38,7 @@ class API
   #       elsif input == "n" 
   #       input == ""
   #   end
-    
+   end
   end
  end
 
@@ -43,23 +56,12 @@ class API
   def top_50_artists
     playlist.tracks.map.with_index(1) do |art, i|
     puts "#{i}. #{art.artists[0].name}"
+  end  
     
-    end
+  # def sorted_artists
+  #   playlist.tracks.sort{ |a, b| a.name <=> b.name }.map.with_index(1)  do |s, i|
+  #   puts "#{i}. #{s.artists[0].name}"
+  # end
+  #   end
   end
 end
-
-
-input = nil
-
-# while input != "exit"
-# puts "enter the song number you want info on:"
-# input = gets.strip.to_i
-# if input > 0
-# puts playlist.tracks.map.with_index(1) do |art, i|
-# puts "#{i}. #{art.artists.name[0]}"
-# end
-# elsif input == "top 50"
-# top_50
-# else puts "idk what you want"
-# end
-# end
