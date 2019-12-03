@@ -1,7 +1,12 @@
+#cli needs to make a api call creating new instances of music with the attribute(initialize). anything puts should be in cli. 
 require 'pry'
 class API 
   
-  #
+  def playlist
+    playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
+    # binding.pry
+  end
+    
 
   # def list_artists
   #   playlist.tracks.sort{ |a, b| a.name <=> b.name }.map.with_index(1)  do |s, i|
@@ -24,22 +29,23 @@ class API
     input = gets.strip.to_i
     
     
-       playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.select.with_index(1)  do |s, i|
-    puts "#{i}. #{s.artists[0].name}"
+       playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
+    puts "Song number #{i}. Artist name - #{i}#{s.artists[0].name}, Album name - #{i}#{s.album.name}, Album type #{i}#{s.album.album_type}"
     
     
     # playlist.tracks.map do |art|
     # puts "#{art.artists[0].name}"
     input = gets.strip.to_i-1
-    
-   
- end
+  end
+ 
+   end
+ 
   
     # == "top 50"
     # list_songs
     # elsif 
     
-  end 
+  
   
     
     def print_songs(number)  
@@ -60,10 +66,8 @@ class API
 # end  
  
 
-  def playlist
-    playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
-    binding.pry
-  end
+ 
+  
   #  playlist.tracks[0].album.name
   #playlist.tracks[0].album.album_type
   #playlist.tracks[0].artists[0].name
