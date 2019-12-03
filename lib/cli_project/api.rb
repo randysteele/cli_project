@@ -8,33 +8,32 @@ class API
   #   end
   # end  
   
-  def list_songs
-    playlist.tracks.sort{ |a, b| a.name <=> b.name }.map.with_index(1)  do |s, i|
-    puts "#{i}. #{s.name}"
-    end
-  end  
-  
   def call
     puts "Welcome to the most popular songs!"
     menu
   end
     
     def menu
-      input = nil
+      input = 
       puts "What song would you like more infomation on? 1-50"
     # input = gets.strip.to_i
     # # puts "To list all the popular songs, enter 'top 50'."
     # puts "To exit, type 'exit'."
     # puts "What song number would you like too see? 1-50"
-    input = gets.strip.to_i-1
-     
-     
-     playlist.tracks.each do |art|
-     puts "#{art.artists[0].name}"
-     input = gets.strip.to_i-1
-       
-  end
+    input = gets.strip.to_i
     
+    
+       playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.select.with_index(1)  do |s, i|
+    puts "#{i}. #{s.artists[0].name}"
+    
+    
+    # playlist.tracks.map do |art|
+    # puts "#{art.artists[0].name}"
+    input = gets.strip.to_i-1
+    
+   
+ end
+  
     # == "top 50"
     # list_songs
     # elsif 
@@ -42,7 +41,7 @@ class API
   end 
   
     
-    def API::print_songs(number)  
+    def print_songs(number)  
       playlist.tracks[number-1, 50].map.with_index(number) do |song, index|
         puts "#{index}. #{song.name}"
       end
@@ -82,4 +81,10 @@ end
     puts "#{i}. #{s.artists[0].name}"
   end
     end
+    
+    def list_songs
+    playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.map.with_index(1)  do |s, i|
+    puts "#{i}. #{s.name}"
+    end
+  end 
 end
