@@ -1,3 +1,4 @@
+#add self.all method and addr.
 class Music
   
 # def playlist
