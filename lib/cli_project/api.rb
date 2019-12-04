@@ -2,13 +2,13 @@
 require 'pry'
 class API 
   
-    def self.playlist
+    def playlist
     playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
     playlist.tracks.each.with_index(1) do |a, i|
-      album_name = playlist.tracks[0].album.name
-      album_type = playlist.tracks[0].album.album_type
-      puts "#{i}. #{a.artists[0].name}"
-      artist_name = 
+      puts "#{i}. #{a.artists.name}"
+      album_name = playlist.tracks.album.name
+      album_type = playlist.tracks.album.album_type
+      artist_name = #{a.artists.name}
       Music.new(album_name, album_type, artist_name)
     end
     end
