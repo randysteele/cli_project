@@ -2,103 +2,22 @@
 require 'pry'
 class API 
   
-  # def playlist
-  #   playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
-  #   # moved to cli
-  # end
-    
-
-  # def list_artists
-  #   playlist.tracks.sort{ |a, b| a.name <=> b.name }.map.with_index(1)  do |s, i|
-  #   puts "#{i}. #{s.artists[0].name}"
-  #   end
-  # end  
-  
-  # def call
-  #   puts "Welcome to the most popular songs!"
-  #   menu
-  #   playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
-  #     puts "Song number #{i}. Artist name - #{s.artists[0].name}, Album name - #{s.album.name}, Album type - #{s.album.album_type}"
-  #     # binding.pry
-  #   end
-  # end
-    
-  #   def menu
-  #     input = " "
-  #     while input != "exit"
-  #     puts "What song would you like more infomation on? 1-50"
-  #   input = gets.strip.to_i
-  #   # # puts "To list all the popular songs, enter 'top 50'."
-  #   puts "To exit, type 'exit'."
-  #   # puts "What song number would you like too see? 1-50"
-  #   # input = gets.strip.to_i
-    
-    
-      # playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
-      # puts "Song number #{i}. Artist name - #{s.artists[0].name}, Album name - #{s.album.name}, Album type - #{s.album.album_type}"
-      # # binding.pry
-      
-      # input = gets.strip.to_i
-      
-  
-#   end 
-# end
-#     # playlist.tracks.map do |art|
-#   # puts "#{art.artists[0].name}"
-#   #   input = gets.strip.to_i-1
-#   # end
- 
-#   end
- 
-  
-#     # == "top 50"
-#     # list_songs
-#     # elsif 
-  
-    # def print_songs(number)  
-    #   playlist.tracks[number-1, 50].map.with_index(number) do |song, index|
-    #     puts "#{index}. #{song.name}"
-    #   end
-    # end  
-    
-  # if input == "top 50"
-  #     top_50
-  #     elsif input == "exit"
-  #       exit
-  #       else 
-  #       "i'm not sure what you want to do."
-  #   end
-  # end
-  
- 
-
- 
-  
-  #  playlist.tracks[0].album.name
-  #playlist.tracks[0].album.album_type
-  #playlist.tracks[0].artists[0].name
-    
-#   def top_50  
-#     playlist.tracks.map.with_index(1) do |song, i|
-#     puts "#{i}. #{song.name}"
-#   end
-#   end
-  
-#   def top_50_artists
-#     playlist.tracks.map.with_index(1) do |art, i|
-#     puts "#{i}. #{art.artists[0].name}"
-#   end 
-# end
-    
-  def sorted_artists
-    playlist.tracks.sort{ |a, b| a.name <=> b.name }.map.with_index(1)  do |s, i|
-    puts "#{i}. #{s.artists[0].name}"
-  end
+    def self.playlist
+    playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
+    playlist.tracks.each.with_index(1) do |a, i|
+      album_name = playlist.tracks[0].album.name
+      album_type = playlist.tracks[0].album.album_type
+      puts "#{i}. #{a.artists[0].name}"
+      artist_name = 
+      Music.new(album_name, album_type, artist_name)
     end
+    end
+end    
     
-  #   def list_songs
-  #   playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.map.with_index(1)  do |s, i|
-  #   puts "#{i}. #{s.name}"
-  #   end
-  # end 
-end
+    
+    # album_name = playlist.tracks[0].album.name
+    #   album_type = playlist.tracks[0].album.album_type
+    
+    # album_name = "#{i}. #{a.album.name}"
+    #   album_type = "#{i}. #{a.album.album_type"
+  

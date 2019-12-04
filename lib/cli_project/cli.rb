@@ -1,14 +1,17 @@
 class CLI
  
-   def playlist
+  def playlist
     playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
     # binding.pry
   end
   
   def call
-   welcome
+    playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
+  # welcome
+   API.playlist
    Music.new
-   API.new.call
+   API.new
+   
    puts "Welcome to the most popular songs!"
     menu
     playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
@@ -61,9 +64,10 @@ end
     end
    
  
-  def welcome
-    puts "Welcome to today's popular songs!"
-  end
+  # def welcome
+  #   puts "Welcome to today's popular songs!"
+  # end
   
- 
 end
+end
+ 
