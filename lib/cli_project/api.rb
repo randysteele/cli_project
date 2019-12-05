@@ -2,7 +2,7 @@
 require 'pry'
 class API 
   
-    def playlist
+    def API.playlist
        playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
        playlist.tracks.each.with_index(1) do |a, i|
        puts "#{i}. #{a.artists[0].name}, #{a.album_name} #{a.album_type}"
