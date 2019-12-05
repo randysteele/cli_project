@@ -1,17 +1,13 @@
-class CLI
+class CLI 
+  
  
   def playlist
     playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
-    # binding.pry
-
   end
   
-   def top_50  
-    # playlist.tracks.map.with_index(1) do |song, i|
-    # puts "#{i}. #{song.name}"
-    @playlists = Music.all
-    @playlists.each.with_index(1) do |a, i|
-      puts "#{i}. #{a.artists.name} #{a.album.name} #{a.album.album.name}"
+  def top_50  
+    playlist.tracks.each.with_index(1) do |a, i|
+        puts "#{i}. #{a.artists[0].name}, #{a.album.name}, #{a.album.album_type}"
    end
   end
   
@@ -23,32 +19,24 @@ class CLI
   
    puts "Welcome to the most popular songs!"
     
-    playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
-       puts "Song number #{i}. Artist name - #{s.artists[0].name}, Album name - #{s.album.name}, Album type - #{s.album.album_type}"
+    # playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
+    #   puts "Song number #{i}. Artist name - #{s.artists[0].name}, Album name - #{s.album.name}, Album type - #{s.album.album_type}"
       # binding.pry
-    end
+    # end
   end
     
     def menu
-      input = ""
+      input = nil
       until input == "exit"
       puts "What song would you like more infomation on? 1-50! To exit type 'exit' "
-      
-      # playlist.tracks.each.with_index(1) do |a, i|
-      #   puts "#{i}. #{a.artists[0].name} #{a.album.name} #{a.album.album_type}"
-      
-      input = gets.strip.to_i
-    
-    if input.to_i > 0
-      # the_music = @playlist
-      playlist.tracks.each.with_index(1) do |a, i|
-        puts "#{i}. #{a.artists[0].name} #{a.album.name} #{a.album.album_type}"
-      # puts "#{the_music.artists[0].name} #{the_music.album.name} #{the_music.album.album_type}"
-      # playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
-      # puts "Song number #{i}. Artist name - #{s.artists[0].name}, Album name - #{s.album.name}, Album type - #{s.album.album_type}"
-      # puts "#{artist_name} #{album.name} #{album.album.type}"
       input = gets.strip
-    end
+    
+    
+    if input.to_i > 0 
+        playlist.tracks.each.with_index(1) do |a, i|
+        puts "#{i}. #{a.artists[0].name}, #{a.album.name}, #{a.album.album_type}"
+      input = gets.strip.to_i[0]
+     end
     elsif "top 50"  
     top_50
 
