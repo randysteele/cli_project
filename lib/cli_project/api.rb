@@ -5,7 +5,7 @@ class API
     def playlist
     playlist = RSpotify::Playlist.find('jppromotions', '35pMFxG8cjdgqevqCOVPAr')
     playlist.tracks.each.with_index(1) do |a, i|
-      #{i}. #{a.artists.name}
+      #{i}. #{a.artists.name}, #{a.album_name} #{a.album_type} #{a.artist_name}
       album_name = playlist.tracks.album.name
       album_type = playlist.tracks.album.album_type
       artist_name = #{a.artists.name}
