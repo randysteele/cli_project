@@ -7,9 +7,9 @@ attr_accessor :album_name, :album_type, :artist_name
  
   # def initialize(album_name, album_type, artist_name)
   def initialize(album_name = nil , album_type = nil , artist_name = nil)
-    @album_name = []
-    @album_type = []
-    @artist_name = []
+    @album_name = album_name
+    @album_type = album_type
+    @artist_name = artist_name
     @@all << self
     
   end  

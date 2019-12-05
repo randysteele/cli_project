@@ -13,23 +13,21 @@ class CLI
   
   def call
     puts "Welcome to the top songs!"
+   API.playlist
    menu
-   API.new.playlist
-   Music.new
-   
   end
   
     def menu
-   puts "What number track would you like to see? 1-10, 11-20, 21-30, 31-40 or 41-50?"
+   puts "What number album would you like to see? 1-10, 11-20, 21-30, 31-40 or 41-50?"
     input = gets.strip.to_i
     
     print_track(playlist)
     
-    puts "Which songs would you like more info on?"
+    puts "Which album would you like more info on?"
     input = gets.strip
     
     
-    input = gets.strip
+    #add method for detailed view
     
     # print_tracks(playlist)
     # playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
@@ -112,8 +110,10 @@ end
    #check indeting and end alignment
  
   def print_track(playlist)
+    # binding.pry
     Music.all.each.with_index do |a, i|
-      binding.pry
+      # binding.pry
+      puts "#{i}. #{a.album_name}"
       # puts "#{i}. #{a."
     end
     #review for when playlist is being passed in. 
