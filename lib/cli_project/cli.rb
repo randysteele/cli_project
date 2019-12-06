@@ -14,8 +14,7 @@ class CLI
    puts "What number album would you like to see? 1-10, 11-20, 21-30, 31-40 or 41-50?"
     input = gets.strip.to_i
     
-    print_tracks(input)
-    #print_track
+    print_track(input)
     
     puts "Which album would you like more info on?"
     input = gets.strip
@@ -23,7 +22,7 @@ class CLI
     
     #add method for detailed view
     
-    album_details
+   print_tracks(input)
       
     input = gets.strip
     
@@ -105,13 +104,15 @@ end
    def sorted_artists
     playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
     puts "#{i}. #{s.artists[0].name}"
-  end
     end
+  end
    #check indeting and end alignment
  
-  def print_track
-    Music.all.each.with_index(1) do |a, i|
-    puts "#{i}. #{a.album_name}"
+  def print_track(from_number)
+    puts Music.new  "#{from_number} - #{from_number+9}"
+    Music.all[from_number-1, 10].each.with_index(from_number) do |a, index|
+    puts "#{index}. #{a.album_name}"
+    end
   end
     
     
@@ -124,17 +125,17 @@ end
   # album_name, :album_type, :artist_name
  
   def print_tracks(from_number)
-     puts Music.new  "#{from_number} - #{from_number+9}"
+    puts Music.new  "#{from_number}  #{from_number+9}"
     Music.all[from_number-1, 10].each.with_index(from_number) do |a, index|
-      puts "Song Number :#{index}.  Artist Name :#{a.artist_name}, Album Name :#{a.album_name}, Album type :#{a.album_type}"
+      puts "#{index}. #{a.artist_name} #{a.album_name} #{a.album_type}"
     end
   end
  
  
-  def album_details
-      Music.all.each.with_index(1) do |a, i|
-      puts "Song Number: #{i}.  Artist Name: #{a.artist_name}, Album Name: #{a.album_name}, Album Type: #{a.album_type}"
+  def album_details(from_number)
+      puts Music.new  "#{from_number} - #{from_number+9}"
+      Music.all[from_number-1, 10].each.with_index(from_number) do |a, index|
+      puts "Song Number: #{index}.  Artist Name: #{a.artist_name}, Album Name: #{a.album_name}, Album Type: #{a.album_type}"
       end
   end
     
- end
