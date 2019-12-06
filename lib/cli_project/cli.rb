@@ -1,12 +1,5 @@
 class CLI 
   
-# def list_songs 
-#   @songs = CLI.new
-#   @songs.each.with_index(1) do |song, i|
-#     puts "#{i}. #{song.name} #{song.album.name} #{song.album.album_type}"
-#     end
-#     end 
-    
   def playlist
     Music.all 
   end
@@ -17,11 +10,11 @@ class CLI
    menu
   end
   
-    def menu
+  def menu
    puts "What number album would you like to see? 1-10, 11-20, 21-30, 31-40 or 41-50?"
     input = gets.strip.to_i
     
-    print_track(playlist)
+    print_track
     
     puts "Which album would you like more info on?"
     input = gets.strip
@@ -29,15 +22,20 @@ class CLI
     
     #add method for detailed view
     
+    album_details
+      
+    input = gets.strip
+    
+    
     # print_tracks(playlist)
     # playlist.tracks.sort{ |a, b| a.popularity <=> b.popularity }.each.with_index(1)  do |s, i|
     #   puts "Song number #{i}. Artist name - #{s.artists[0].name}, Album name - #{s.album.name}, Album type - #{s.album.album_type}"
      
     # end
     
-    # print_track(playlist)
+    
     puts "Would you like to see more songs? Y or N"
-    input = gets.strip.downcase
+    input = gets.strip
     if input == "y"
       menu
       elsif input == "n"
@@ -58,11 +56,12 @@ class CLI
       
       
   def top_50  
-    #make this list view
-     playlist.tracks.each.with_index(1) do |a, i|
+      playlist.tracks.each.with_index(1) do |a, i|
        puts "#{i}. #{a.artists[0].name}, #{a.album.name}, #{a.album.album_type}"
    end
   end  
+     
+    
      
     # print_tracks(top_50)
     
@@ -109,13 +108,12 @@ end
     end
    #check indeting and end alignment
  
-  def print_track(playlist)
-    # binding.pry
-    Music.all.each.with_index do |a, i|
-      # binding.pry
-      puts "#{i}. #{a.album_name}"
-      # puts "#{i}. #{a."
-    end
+  def print_track
+    Music.all.each.with_index(1) do |a, i|
+    puts "#{i}. #{a.album_name}"
+  end
+    
+    
     #review for when playlist is being passed in. 
     # puts "#{playlist.album_name} -- #{playlist.album_type} -- #{playlist.artist_name}"
     # input = gets.strip.to_i
@@ -125,10 +123,17 @@ end
   # album_name, :album_type, :artist_name
  
   def print_tracks(from_number)
-    # puts " Music      #{from_number} - #{from_number+9}     "
-    Music.all[from_number-1, 10].each.with_index(from_number) do |track, index|
-      puts "#{index}. #{track.artist_name} -  #{track.album_name} -   #{track.album_type}"
+     puts Music.new  "#{from_number} - #{from_number+9}"
+    Music.all[from_number-1, 10].each.with_index(from_number) do |a, index|
+      puts "Song Number :#{i}.  Artist Name :#{a.artist_name}, Album Name :#{a.album_name}, Album type :#{a.album_type}"
     end
   end
  
-end
+ 
+  def album_details
+      Music.all.each.with_index(1) do |a, i|
+      puts "Song Number: #{i}.  Artist Name: #{a.artist_name}, Album Name: #{a.album_name}, Album Type: #{a.album_type}"
+      end
+  end
+    
+ end

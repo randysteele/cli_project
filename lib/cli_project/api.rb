@@ -20,4 +20,4 @@ class API
     
     # album_name = "#{i}. #{a.album.name}"
     #   album_type = "#{i}. #{a.album.album_type"
- end 
+ end
