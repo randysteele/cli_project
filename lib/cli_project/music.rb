@@ -12,7 +12,6 @@ attr_accessor :album_name, :album_type, :artist_name, :track_name
     @artist_name = artist_name
     @track_name = track_name
     @@all << self
-    
   end  
 
 
