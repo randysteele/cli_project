@@ -19,7 +19,7 @@ class CLI
      puts "      **To see more details on a specific album, please enter the album number**"
       input = gets.strip.to_i
      album_details(input)
-    puts "Would you like to see the details for more albums? Enter Y or N"
+    puts "Would you like to see the details for more albums? Enter Y or exit!"
     if input == "y"
       album_details
       elsif input == "n"
