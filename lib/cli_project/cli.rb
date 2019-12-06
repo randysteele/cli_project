@@ -14,7 +14,8 @@ class CLI
    puts "What number album would you like to see? 1-10, 11-20, 21-30, 31-40 or 41-50?"
     input = gets.strip.to_i
     
-    print_track
+    print_tracks(input)
+    #print_track
     
     puts "Which album would you like more info on?"
     input = gets.strip
@@ -125,7 +126,7 @@ end
   def print_tracks(from_number)
      puts Music.new  "#{from_number} - #{from_number+9}"
     Music.all[from_number-1, 10].each.with_index(from_number) do |a, index|
-      puts "Song Number :#{i}.  Artist Name :#{a.artist_name}, Album Name :#{a.album_name}, Album type :#{a.album_type}"
+      puts "Song Number :#{index}.  Artist Name :#{a.artist_name}, Album Name :#{a.album_name}, Album type :#{a.album_type}"
     end
   end
  
