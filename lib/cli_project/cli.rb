@@ -11,15 +11,16 @@ class CLI
   end
   
   def menu
-   puts "To see today's most popular songs press '1' "
+   puts "To see today's most popular albums press '1' "
     input = gets.strip.to_i
     if input == 1
     print_track
-     puts "      **To see more details on a specific track, please enter the track number**"
-    else 
-    puts "That's not a valid entry. Please press 1 to list all songs or 'exit' to exit. What would you like to do?"
+     puts "      **To see more details on a specific album, please enter the album number**"
+      input = gets.strip.to_i
+     album_details(input)
+    puts "Would you like to see the details for more albums"
     input = gets.strip.to_i
-    # puts "Which album would you like more info on?"
+    
     input = gets.strip
   
   end
@@ -37,7 +38,7 @@ class CLI
     # end
     
     
-    puts "Would you like to see more songs? Y or N"
+    puts "Would you like to see more album details? Y or N"
     input = gets.strip
     until input == "exit"
     
@@ -138,9 +139,12 @@ end
  
  
   def album_details(from_number)
-      puts Music.new  "#{from_number} - #{from_number+9}"
-      Music.all[from_number-1, 10].each.with_index(from_number) do |a, index|
-      puts "Song Number: #{index}.  Artist Name: #{a.artist_name}, Album Name: #{a.album_name}, Album Type: #{a.album_type}"
+      puts Music.new  "#{from_number} - #{from_number+1}"
+      Music.all[from_number-1, 1].each.with_index(from_number) do |a, index|
+      puts "      Album Number: #{index}.  
+      Album Name:   #{a.album_name}
+      Album Type:   #{a.album_type}
+      Artist Name:  #{a.artist_name}" 
       end
   end
     
