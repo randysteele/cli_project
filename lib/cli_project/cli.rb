@@ -10,20 +10,23 @@ class CLI
    menu
   end
   
-  def menu
-   puts "To see today's most popular albums press '1' "
+    def menu
+    puts "To see today's most popular albums press '1' "
     input = gets.strip.to_i
-    if input == 1
+    input == 1
     print_track
+    while input != "exit"
      puts "      **To see more details on a specific album, please enter the album number**"
       input = gets.strip.to_i
      album_details(input)
-    puts "Would you like to see the details for more albums"
-    input = gets.strip.to_i
+    puts "Would you like to see the details for more albums? Enter Y or N"
+    if input == "y"
+      album_details
+      elsif input == "n"
+        puts "Thank you for visiting, have a great day!"
     
-    input = gets.strip
   
-  end
+   end
     #add method for detailed view
     
   # print_tracks(input)
@@ -38,19 +41,19 @@ class CLI
     # end
     
     
-    puts "Would you like to see more album details? Y or N"
-    input = gets.strip
-    until input == "exit"
+  #   puts "Would you like to see more album details? Y or N"
+  #   input = gets.strip
+  #   until input == "exit"
     
-    if input == "y"
-      menu
-      elsif input == "n"
-      puts "Thank you for stopping by, have a great day!"
-      exit
-    else
-      puts "Sorry, I'm not sure what you mean."
-      menu
-    end
+  #   if input == "y"
+  #     menu
+  #     elsif input == "n"
+  #     puts "Thank you for stopping by, have a great day!"
+  #     exit
+  #   else
+  #     puts "Sorry, I'm not sure what you mean."
+  #     menu
+  #   end
   end
   end
 
@@ -147,4 +150,3 @@ end
       Artist Name:  #{a.artist_name}" 
       end
   end
-    
