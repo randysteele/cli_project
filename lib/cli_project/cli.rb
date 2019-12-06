@@ -11,18 +11,21 @@ class CLI
   end
   
   def menu
-   puts "What number album would you like to see? 1-10, 11-20, 21-30, 31-40 or 41-50?"
+   puts "To see today's most popular songs press '1' "
     input = gets.strip.to_i
-    
-    print_track(input)
-    
-    puts "Which album would you like more info on?"
+    if input == 1
+    print_track
+     puts "      **To see more details on a specific track, please enter the track number**"
+    else 
+    puts "That's not a valid entry. Please press 1 to list all songs or 'exit' to exit. What would you like to do?"
+    input = gets.strip.to_i
+    # puts "Which album would you like more info on?"
     input = gets.strip
-    
-    
+  
+  end
     #add method for detailed view
     
-   print_tracks(input)
+  # print_tracks(input)
       
     input = gets.strip
     
@@ -36,6 +39,8 @@ class CLI
     
     puts "Would you like to see more songs? Y or N"
     input = gets.strip
+    until input == "exit"
+    
     if input == "y"
       menu
       elsif input == "n"
@@ -45,6 +50,7 @@ class CLI
       puts "Sorry, I'm not sure what you mean."
       menu
     end
+  end
   end
 
     
@@ -108,9 +114,8 @@ end
   end
    #check indeting and end alignment
  
-  def print_track(from_number)
-    puts Music.new  "#{from_number} - #{from_number+9}"
-    Music.all[from_number-1, 10].each.with_index(from_number) do |a, index|
+  def print_track
+    Music.all.each.with_index(1) do |a, index|
     puts "#{index}. #{a.album_name}"
     end
   end
