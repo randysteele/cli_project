@@ -1,6 +1,6 @@
 # CliProject
 
-This Ruby Gem provides a CLI to view the current 50 most popular albums on Spotify. 
+![Music Image ](https://user-images.githubusercontent.com/55413005/70379659-5203e180-18fd-11ea-93c2-21bdead00a51.jpg)This Ruby Gem provides a CLI to view the current 50 most popular albums on Spotify. 
 
 ## Installation
 
