@@ -1,8 +1,6 @@
 # CliProject
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cli_project`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby Gem provides a CLI to view the current 50 most popular albums on Spotify. 
 
 ## Installation
 
@@ -21,8 +19,16 @@ Or install it yourself as:
     $ gem install cli_project
 
 ## Usage
+You can write things like playlist.name without having to think about what API call you need to make. 
+Some other usage examples; 
+playlist.tracks.sort_by(&:name)
+playlist.tracks.sort_by(&:popularity)
+playlist.tracks.first.name
 
-TODO: Write usage instructions here
+
+Enter the below and follow the on screen prompts. 
+
+cli_project
 
 ## Development
 
