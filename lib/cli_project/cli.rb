@@ -13,18 +13,18 @@ class CLI
   def menu
     puts "To see today's most popular albums press '1' then enter "
     input = gets.strip.to_i
-    input == 1
+    if input == 1
     print_track
     while input != "exit"
     puts "      **To see more details on a specific album, please enter the album number.**"
     input = gets.strip.to_i
     album_details(input)
     puts "Would you like to see the details for more albums? Enter Y or exit"
-    input = gets.strip
+     input = gets.strip
     puts "Thank you for visiting, have a great day!"
     end
-  end
-   
+    end
+ end
  
   def print_track
     Music.all.each.with_index(1) do |a, index|
