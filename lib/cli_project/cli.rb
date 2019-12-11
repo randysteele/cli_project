@@ -21,8 +21,8 @@ class CLI
     album_details(input)
     puts "Would you like to see the details for more albums? Enter Y or exit"
      input = gets.strip
-    puts "Thank you for visiting, have a great day!"
     end
+    puts "Thank you for visiting, have a great day!"
     end
  end
  
@@ -35,7 +35,6 @@ class CLI
  
  
   def album_details(from_number)
-      puts Music.new  "#{from_number} - #{from_number+1}"
       Music.all[from_number-1, 1].each.with_index(from_number) do |a, index|
       puts "      Album Number: #{index}.  
       Album Name:   #{a.album_name}
